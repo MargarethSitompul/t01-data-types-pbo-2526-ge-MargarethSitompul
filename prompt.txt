@@ -1,0 +1,263 @@
+Dari code instruksii dbawah tentukkkan alur pengerjaaannya , buat secara terstruuktur sesuaiidengan fiile materiii yang akan saya kirim kan :  Soal 1 — Integer Overflow Detection!
+Deskripsi
+
+Baca dua bilangan bulat bertipe int.
+Program harus menjumlahkan kedua bilangan tersebut.
+
+Jika terjadi integer overflow, cetak:
+
+OVERFLOW
+
+
+Jika tidak terjadi overflow, cetak hasil penjumlahan.
+
+⚠️ DILARANG menggunakan long, BigInteger, atau try-catch untuk mendeteksi overflow.
+
+Input:
+Soal1 a b
+
+Output
+hasil penjumlahan
+
+Contoh Input:
+Soal1 2147483647 1
+
+Contoh Output:
+OVERFLOW
+
+
+Contoh Input 2:
+Soal1 1000000000 1000000000
+
+Contoh Output 2:
+2000000000
+
+Soal 2 — Float vs Double Precision Trap!
+Deskripsi
+
+Baca dua bilangan desimal.
+
+Jumlahkan keduanya menggunakan float
+
+Jumlahkan keduanya menggunakan double
+
+Hitung selisih absolut dari kedua hasil tersebut
+
+Output harus ditampilkan dengan 6 digit di belakang koma.
+
+Input
+Soal2 x y
+
+Contoh Input
+Soal2 0.1 0.2
+
+Contoh Output
+0.000000
+
+Contoh Input
+Soal2 1234567.89 0.11
+
+Contoh Output
+0.015625
+
+Soal 3 — Primitive vs Wrapper Comparison!
+Deskripsi
+
+Baca satu bilangan bulat N.
+
+Lakukan langkah berikut:
+
+Simpan N ke dalam objek Integer a
+
+Salin nilai a ke Integer b
+
+Tambahkan 1 ke a
+
+Bandingkan a dan b menggunakan:
+
+operator ==
+
+method equals()
+
+Input
+Soal3 N
+
+Contoh Input
+Soal3 127
+
+Contoh Output
+==: false
+equals: false
+
+Contoh Input
+Soal3 128
+
+Contoh Output
+==: false
+equals: false
+
+Soal 4 — String Immutability & Reference!
+Deskripsi
+
+Baca satu string S.
+
+Lakukan langkah berikut:
+
+Buat String a = S
+
+Buat String b = new String(S)
+
+Gabungkan string "X" ke a
+
+Bandingkan a dan b menggunakan:
+
+operator ==
+
+method equals()
+
+Input
+Soal4 S
+
+Contoh Input
+Soal4 hello
+
+Contoh Output
+==: false
+equals: false
+
+Soal 5 — Parsing & Type Safety!
+Deskripsi
+
+Baca satu bilangan bulat, satu bilangan desimal, dan satu boolean.
+
+Lakukan langkah berikut:
+
+Parse seluruh input ke tipe data yang sesuai
+
+Hitung:
+
+integer × double
+
+
+Jika nilai boolean adalah false, hasil dikali -1
+
+Cetak hasil dengan 2 digit di belakang koma
+
+⚠️ DILARANG melakukan casting manual antar tipe.
+
+Input
+Soal5 integer double boolean
+
+Contoh Input
+Soal5 10 2.5 false
+
+Contoh Output
+-25.00
+
+
+  bagaimana cara mengerjaannya jika di iiinstruksikan d kerjakakn di main java 
+
+ apa masalaahnyaa?
+   ini sudah ada bin nya lohhimport java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        String soal = sc.next(); // membaca Soal1 / Soal2 / ...
+
+        if (soal.equals("Soal1")) {
+int a = sc.nextInt();
+int b = sc.nextInt();
+
+boolean overflow = false;
+
+if (a > 0 && b > 0 && a > Integer.MAX_VALUE - b) {
+    overflow = true;
+}
+if (a < 0 && b < 0 && a < Integer.MIN_VALUE - b) {
+    overflow = true;
+}
+
+if (overflow) {
+    System.out.println("OVERFLOW");
+} else {
+    System.out.println(a + b);
+}
+
+        
+        } 
+        else if (soal.equals("Soal2")) {
+            double x = sc.nextDouble();
+double y = sc.nextDouble();
+
+float fSum = (float) x + (float) y;
+double dSum = x + y;
+
+double diff = Math.abs(dSum - fSum);
+
+System.out.printf("%.6f\n", diff);
+
+        } 
+        else if (soal.equals("Soal3")) {
+            int N = sc.nextInt();
+
+Integer a = N;
+Integer b = a;
+
+a = a + 1;
+
+System.out.println("==: " + (a == b));
+System.out.println("equals: " + a.equals(b));
+
+        } 
+        else if (soal.equals("Soal4")) {
+            String S = sc.next();
+
+String a = S;
+String b = new String(S);
+
+a = a + "X";
+
+System.out.println("==: " + (a == b));
+System.out.println("equals: " + a.equals(b));
+
+        } 
+        else if (soal.equals("Soal5")) {
+            String intStr = sc.next();
+String doubleStr = sc.next();
+String boolStr = sc.next();
+
+int i = Integer.parseInt(intStr);
+double d = Double.parseDouble(doubleStr);
+boolean b = Boolean.parseBoolean(boolStr);
+
+double result = i * d;
+
+if (!b) {
+    result = -result;
+}
+
+System.out.printf("%.2f\n", result);
+
+        }
+
+        sc.close();
+    }
+}
+      periksa kkode diiatas apakah terdapat kesalaahn?
+      usahakan sesuaiii dengan file materiii  yang beriikakn cara pengerjaannya 
+      
+C:\Users\Asus\Documents\GitHub\t01-data-types-pbo-2526-ge-MargarethSitompul>javac src/Main.java -d bin
+error: file not found: src\Main.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+
+C:\Users\Asus\Documents\GitHub\t01-data-types-pbo-2526-ge-MargarethSitompul>
+C:\Users\Asus\Documents\GitHub\t01-data-types-pbo-2526-ge-MargarethSitompul>javac src/Main.java -d bin
+error: file not found: src\Main.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+
+C:\Users\Asus\Documents\GitHub\t01-data-types-pbo-2526-ge-MargarethSitompul>      
